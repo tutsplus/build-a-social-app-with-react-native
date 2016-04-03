@@ -108,7 +108,7 @@ export default Reflux.createStore({
   getTransformedData: function () {
     let transformedData = this.posts;
     return transformedData.sort((a, b) => {
-      return new Date(a.createdAt) < new Date(b.createdAt);
+      return new Date(b.createdAt) - new Date(a.createdAt);
     });
   }
 });

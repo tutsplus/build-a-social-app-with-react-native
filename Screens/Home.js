@@ -7,6 +7,7 @@ import React, {
 
 import Actions from 'Social/Actions';
 import Button from 'Social/Views/Button';
+import DataStore from 'Social/DataStore';
 import LoadingView from 'Social/Views/LoadingView';
 import Routes from 'Social/Routes';
 import SharedStyles from 'Social/SharedStyles';
@@ -70,7 +71,13 @@ export default class Home extends React.Component {
   }
 
   _onLoadUserCompleted(user) {
+    let currentUser = DataStore.getCurrentUser();
 
+    if (currentUser.onboarded) {
+      this.setState({ loaded: true });
+    } else {
+      this.props.replaceRoute(Routes.onboarding(currentUser));
+    }
   }
 
   _onLogout() {

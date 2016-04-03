@@ -60,5 +60,12 @@ export default Reflux.createStore({
   onLogout: function () {
     ApiRequest.logout();
     AccessToken.clear();
+  },
+
+  onOnboard: function (payload) {
+    let currentUser = this.getCurrentUser();
+    ApiRequest.updateUser(currentUser.uid, payload)
+      .then((user) => Actions.onboard.completed(user))
+      .catch((err) => Actions.onboard.failed(err))
   }
 });

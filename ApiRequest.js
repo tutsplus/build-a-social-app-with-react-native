@@ -50,6 +50,15 @@ class ApiRequest {
         .catch((err) => error(err));
     });
   }
+
+  updateUser(uid, payload) {
+    return new Promise((next, error) => {
+      let userRef = this.firebase.child('profiles').child(uid);
+      userRef.update(payload)
+        .then(() => next(payload))
+        .catch((err) => error(err))
+    });
+  }
 }
 
 export default new ApiRequest();

@@ -8,7 +8,8 @@ let actions = Reflux.createActions([
   { login: { asyncResult: true } },
   "logout",
   { signup: { asyncResult: true } },
-  { loadUser: { asyncResult: true } }
+  { loadUser: { asyncResult: true } },
+  { onboard: { asyncResult: true, children: ["started"] } },
 ]);
 
 actions.auth.listen(function () {

@@ -96,6 +96,7 @@ export default class RootNavigator extends React.Component {
     return (
       <View style={[styles.sceneContainer, style]}>
         <route.component
+          {...route.passProps}
           navigator={navigator}
           back={() => this.back()}
           backToHome={() => this.backToHome()}

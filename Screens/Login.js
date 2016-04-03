@@ -251,6 +251,10 @@ export default class Login extends React.Component {
   }
 
   onLoadUserCompleted(user) {
-    this.props.replaceRoute(Routes.home());
+    if (user.onboarded) {
+      this.props.replaceRoute(Routes.home());
+    } else {
+      this.props.replaceRoute(Routes.onboarding(user));
+    }
   }
 }

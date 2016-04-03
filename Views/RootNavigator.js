@@ -149,7 +149,7 @@ export default class RootNavigator extends React.Component {
     if (route) {
       let state = {};
 
-      if (route.hideNavigationBar && this.state.hideNavigationBar !== route.hideNavigationBar)
+      if (route.hideNavigationBar !== undefined && this.state.hideNavigationBar !== route.hideNavigationBar)
         state.hideNavigationBar = route.hideNavigationBar;
 
       if (route.statusBarStyle && this.state.statusBarStyle !== route.statusBarStyle) {

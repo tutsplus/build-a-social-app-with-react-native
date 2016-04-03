@@ -4,6 +4,8 @@ import React, {
   TouchableOpacity
 } from 'react-native';
 
+import Actions from 'Social/Actions';
+
 export default class LogoutButton extends React.Component {
   render() {
     let style = { marginLeft: 10, color: "white" };
@@ -20,6 +22,6 @@ export default class LogoutButton extends React.Component {
   }
 
   onPress() {
-    // TODO: Log user out of the application, and redirect to login screen
+    Actions.logout();
   }
 }

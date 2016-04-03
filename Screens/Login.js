@@ -11,7 +11,9 @@ import React, {
 import Reflux from 'reflux';
 
 import Actions from 'Social/Actions';
+import DataStore from 'Social/DataStore';
 import Button from 'Social/Views/Button';
+import Routes from 'Social/Routes';
 import StyleVars from 'Social/StyleVars';
 
 const windowWidth = Dimensions.get("window").width;
@@ -122,7 +124,9 @@ export default class Login extends React.Component {
     this.passwordConfirmation = null;
   }
 
-
+  componentDidMount() {
+    Actions.loadUser.completed.listen(this.onLoadUserCompleted.bind(this));
+  }
 
   render() {
     let footerText = this.state.isSignup ? (
@@ -170,7 +174,7 @@ export default class Login extends React.Component {
           style={styles.input}
           autoCapitalize="none"
           autoCorrect={false}
-          onChangeType={(password) => this.passwordConfirmation = password}
+          onChangeText={(password) => this.passwordConfirmation = password}
           returnKeyType="go"
           onSubmitEditing={() => this.submitForm()}
         />
@@ -189,7 +193,7 @@ export default class Login extends React.Component {
             autoFocus={true}
             autoCapitalize="none"
             autoCorrect={false}
-            onChangeType={(email) => this.email = email}
+            onChangeText={(email) => this.email = email}
             returnKeyType="next"
             onSubmitEditing={() => this._passwordRef.focus()}
           />
@@ -204,7 +208,7 @@ export default class Login extends React.Component {
             style={styles.input}
             autoCapitalize="none"
             autoCorrect={false}
-            onChangeType={(password) => this.password = password}
+            onChangeText={(password) => this.password = password}
             returnKeyType={this.state.isSignup ? "next" : "go"}
             onSubmitEditing={() => this.state.isSignup ? this._passwordConfirmationRef.focus() : this.submitForm()}
           />
@@ -244,5 +248,9 @@ export default class Login extends React.Component {
 
   changeSignup() {
     this.setState({ isSignup: !this.state.isSignup });
+  }
+
+  onLoadUserCompleted(user) {
+    this.props.replaceRoute(Routes.home());
   }
 }

@@ -10,6 +10,7 @@ let actions = Reflux.createActions([
   { signup: { asyncResult: true } },
   { loadUser: { asyncResult: true } },
   { onboard: { asyncResult: true, children: ["started"] } },
+  { addContacts: { asyncResult: true, children: ["started"] } },
 ]);
 
 actions.auth.listen(function () {

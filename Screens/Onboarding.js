@@ -122,7 +122,7 @@ class Onboarding extends React.Component {
   }
 
   onOnboardCompleted() {
-    this.props.replaceRoute(Routes.home());
+    this.props.replaceRoute(Routes.contacts(this.props.user));
   }
 }
 

@@ -30,7 +30,7 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       loaded: false,
-      failed: true
+      failed: false
     };
   }
 

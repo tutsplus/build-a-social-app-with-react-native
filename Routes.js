@@ -2,7 +2,9 @@
 import Home from 'Social/Screens/Home';
 import Login from 'Social/Screens/Login';
 import Onboarding from 'Social/Screens/Onboarding';
+import Contacts from 'Social/Screens/Contacts';
 import LogoutButton from 'Social/Views/LogoutButton';
+import ContactsButton from 'Social/Views/ContactsButton';
 import OnboardingButton from 'Social/Views/OnboardingButton';
 import PostButton from 'Social/Views/PostButton';
 
@@ -45,6 +47,19 @@ class Routes {
       component: Onboarding,
       leftButton: LogoutButton,
       rightButton: OnboardingButton,
+      passProps: { user: user },
+      hideNavigationBar: false,
+      statusBarStyle: "light-content"
+    }
+  }
+
+  contacts(user) {
+    return {
+      name: "contacts",
+      title: "Add Contacts",
+      component: Contacts,
+      leftButton: LogoutButton,
+      rightButton: ContactsButton,
       passProps: { user: user },
       hideNavigationBar: false,
       statusBarStyle: "light-content"

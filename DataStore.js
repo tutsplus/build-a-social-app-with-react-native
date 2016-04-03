@@ -69,12 +69,13 @@ export default Reflux.createStore({
       .catch((err) => Actions.onboard.failed(err))
   },
 
-  onUploadPost: function (image) {
+  onUploadPost: function (image, position) {
     ApiRequest.uploadPost({
       userId: this.getCurrentUser().uid,
       user: this.getCurrentUser().name,
       picture: image,
       createdAt: new Date().toString(),
+      position: JSON.stringify(position)
     })
       .then((data) => Actions.uploadPost.completed(data))
       .catch((err) => Actions.uploadPost.failed(err));

@@ -27,7 +27,11 @@ export default class LogoutButton extends React.Component {
       title: "Post Picture"
     }, (picture) => {
       if (picture.data) {
-        Actions.uploadPost('data:image/jpeg;base64,' + picture.data);
+        navigator.geolocation.getCurrentPosition((position) => {
+          Actions.uploadPost('data:image/jpeg;base64,' + picture.data, position);
+        }, (error) => {
+          Actions.uploadPost('data:image/jpeg;base64,' + picture.data, null);
+        });
       }
     });
   }

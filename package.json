@@ -10,6 +10,7 @@
     "react": "^0.14.8",
     "react-native": "^0.22.2",
     "react-native-addressbook": "github:rt2zz/react-native-addressbook",
+    "react-native-geocoder": "^0.3.1",
     "react-native-image-picker": "^0.18.5",
     "reflux": "^0.4.0"
   }

@@ -25,6 +25,7 @@
 		A73DC91B1CB1A74400E67BE3 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A73DC91A1CB1A73B00E67BE3 /* libRNImagePicker.a */; };
 		A759588F1CAFEA6700E5312E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A759588D1CAFEA6700E5312E /* Roboto-Bold.ttf */; };
 		A75958901CAFEA6700E5312E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A759588E1CAFEA6700E5312E /* Roboto-Regular.ttf */; };
+		A79E5EBD1CB1BD8E008071F8 /* libRNGeocoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A79E5EBB1CB1BD86008071F8 /* libRNGeocoder.a */; };
 		A7D31DE31CB1BF2A0087427A /* libRCTAddressBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D31DD61CB1BF240087427A /* libRCTAddressBook.a */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,13 @@
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
 		};
+		A79E5EBA1CB1BD86008071F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A79E5EAA1CB1BD86008071F8 /* RNGeocoder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BF8FCF941BFFB184000FCD37;
+			remoteInfo = RNGeocoder;
+		};
 		A7D31DD51CB1BF240087427A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A7D31DCF1CB1BF240087427A /* RCTAddressBook.xcodeproj */;
@@ -154,6 +162,7 @@
 		A73DC9151CB1A73B00E67BE3 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		A759588D1CAFEA6700E5312E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		A759588E1CAFEA6700E5312E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		A79E5EAA1CB1BD86008071F8 /* RNGeocoder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGeocoder.xcodeproj; path = "../node_modules/react-native-geocoder/RNGeocoder.xcodeproj"; sourceTree = "<group>"; };
 		A7D31DCF1CB1BF240087427A /* RCTAddressBook.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAddressBook.xcodeproj; path = "../node_modules/react-native-addressbook/RCTAddressBook.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +190,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				A73DC91B1CB1A74400E67BE3 /* libRNImagePicker.a in Frameworks */,
 				A7D31DE31CB1BF2A0087427A /* libRCTAddressBook.a in Frameworks */,
+				A79E5EBD1CB1BD8E008071F8 /* libRNGeocoder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +303,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				A79E5EAA1CB1BD86008071F8 /* RNGeocoder.xcodeproj */,
 				A7D31DCF1CB1BF240087427A /* RCTAddressBook.xcodeproj */,
 				A73DC9151CB1A73B00E67BE3 /* RNImagePicker.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -344,6 +355,14 @@
 			isa = PBXGroup;
 			children = (
 				A73DC91A1CB1A73B00E67BE3 /* libRNImagePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A79E5EAB1CB1BD86008071F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A79E5EBB1CB1BD86008071F8 /* libRNGeocoder.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -468,6 +487,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = A79E5EAB1CB1BD86008071F8 /* Products */;
+					ProjectRef = A79E5EAA1CB1BD86008071F8 /* RNGeocoder.xcodeproj */;
+				},
+				{
 					ProductGroup = A73DC9161CB1A73B00E67BE3 /* Products */;
 					ProjectRef = A73DC9151CB1A73B00E67BE3 /* RNImagePicker.xcodeproj */;
 				},
@@ -556,6 +579,13 @@
 			fileType = archive.ar;
 			path = libRNImagePicker.a;
 			remoteRef = A73DC9191CB1A73B00E67BE3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A79E5EBB1CB1BD86008071F8 /* libRNGeocoder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGeocoder.a;
+			remoteRef = A79E5EBA1CB1BD86008071F8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		A7D31DD61CB1BF240087427A /* libRCTAddressBook.a */ = {

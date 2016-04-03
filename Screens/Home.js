@@ -5,8 +5,10 @@ import React, {
   View
 } from 'react-native';
 
+import Actions from 'Social/Actions';
 import Button from 'Social/Views/Button';
 import LoadingView from 'Social/Views/LoadingView';
+import Routes from 'Social/Routes';
 import SharedStyles from 'Social/SharedStyles';
 import StyleVars from 'Social/StyleVars';
 
@@ -29,6 +31,15 @@ export default class Home extends React.Component {
       loaded: false,
       failed: true
     };
+  }
+
+  componentWillMount() {
+    Actions.auth();
+  }
+
+  componentDidMount() {
+    Actions.loadUser.completed.listen(this._onLoadUserCompleted.bind(this));
+    Actions.logout.listen(this._onLogout.bind(this));
   }
 
   render() {
@@ -56,5 +67,13 @@ export default class Home extends React.Component {
 
   _retryFetch() {
     // TODO: Initiate another fetch from the server
+  }
+
+  _onLoadUserCompleted(user) {
+
+  }
+
+  _onLogout() {
+    this.props.replaceRoute(Routes.login());
   }
 }

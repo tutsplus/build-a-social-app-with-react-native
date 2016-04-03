@@ -1,8 +1,11 @@
 'use strict';
 import React, {
+  NativeModules,
   Text,
   TouchableOpacity
 } from 'react-native';
+
+import Actions from 'Social/Actions';
 
 export default class LogoutButton extends React.Component {
   render() {
@@ -20,6 +23,12 @@ export default class LogoutButton extends React.Component {
   }
 
   onPress() {
-    // TODO: Log user out of the application, and redirect to login screen
+    NativeModules.ImagePickerManager.showImagePicker({
+      title: "Post Picture"
+    }, (picture) => {
+      if (picture.data) {
+        Actions.uploadPost('data:image/jpeg;base64,' + picture.data);
+      }
+    });
   }
 }

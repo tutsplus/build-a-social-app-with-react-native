@@ -59,6 +59,23 @@ class ApiRequest {
         .catch((err) => error(err))
     });
   }
+
+  uploadPost(payload) {
+    return new Promise((next, error) => {
+      let postRef = this.firebase.child('posts');
+      postRef.push(payload)
+        .then(() => next(payload))
+        .catch((err) => error(err));
+    });
+  }
+
+  loadPosts() {
+    return new Promise((next, error) => {
+      this.firebase.child('posts').once('value')
+        .then((snapshot) => next(snapshot.val()))
+        .catch((err) => error(err));
+    });
+  }
 }
 
 export default new ApiRequest();

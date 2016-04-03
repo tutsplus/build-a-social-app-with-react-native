@@ -67,5 +67,48 @@ export default Reflux.createStore({
     ApiRequest.updateUser(currentUser.uid, payload)
       .then((user) => Actions.onboard.completed(user))
       .catch((err) => Actions.onboard.failed(err))
+  },
+
+  onUploadPost: function (image) {
+    ApiRequest.uploadPost({
+      userId: this.getCurrentUser().uid,
+      user: this.getCurrentUser().name,
+      picture: image,
+      createdAt: new Date().toString(),
+    })
+      .then((data) => Actions.uploadPost.completed(data))
+      .catch((err) => Actions.uploadPost.failed(err));
+  },
+
+  onUploadPostCompleted: function (newPost) {
+    if (this.posts) {
+      this.posts.push(newPost);
+      this.trigger(this.getTransformedData());
+    } else {
+      this._updateList({ new: newPost });
+    }
+  },
+
+  onLoadPosts: function () {
+    ApiRequest.loadPosts()
+      .then((data) => Actions.loadPosts.completed(data))
+      .catch((err) => Actions.loadPosts.failed(err));
+  },
+
+  onLoadPostsCompleted: function (items) {
+    this._updateList(items);
+  },
+
+  _updateList: function (items) {
+    if (!items) { return; }
+    this.posts = Object.values(items);
+    this.trigger(this.getTransformedData());
+  },
+
+  getTransformedData: function () {
+    let transformedData = this.posts;
+    return transformedData.sort((a, b) => {
+      return new Date(a.createdAt) < new Date(b.createdAt);
+    });
   }
 });

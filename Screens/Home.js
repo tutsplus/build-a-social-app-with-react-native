@@ -9,6 +9,7 @@ import Actions from 'Social/Actions';
 import Button from 'Social/Views/Button';
 import DataStore from 'Social/DataStore';
 import LoadingView from 'Social/Views/LoadingView';
+import PostListView from 'Social/Views/PostListView';
 import Routes from 'Social/Routes';
 import SharedStyles from 'Social/SharedStyles';
 import StyleVars from 'Social/StyleVars';
@@ -56,7 +57,7 @@ export default class Home extends React.Component {
         </View>
       );
     } else if (this.state.loaded) {
-      return <View style={SharedStyles.screenContainer} />;
+      return <PostListView style={SharedStyles.screenContainer} />;
     } else {
       return (
         <LoadingView backgroundColor={StyleVars.Colors.mediumBackground}>

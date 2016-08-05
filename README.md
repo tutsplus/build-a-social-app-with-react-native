@@ -13,6 +13,14 @@ In this course, Envato Tuts+ instructor Markus Mühlberger will show you how to 
 This repository contains the completed project. The progress at the end of every lesson is tagged as a revision in the repository, so you can download a snapshot of the project at any point in the project.
 
 
+## How to run
+```
+> npm install -g react-native-cli
+> git clone https://github.com/tutsplus/build-a-social-app-with-react-native.git
+> cd build-a-social-app-with-react-native/
+> npm install
+> react-native run-ios
+```
 ## 3rd-Party Content
 
 Roboto, the custom font used in this project is available for download from [Font Squirrel](https://www.fontsquirrel.com/fonts/roboto). Roboto is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/).
